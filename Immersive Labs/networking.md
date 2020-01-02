@@ -1,10 +1,12 @@
 ## Lab 1: *Ports*
 
-**Q:** What name is given to the port numbers ranging from 0 to 1023? \n
+**Q:** What name is given to the port numbers ranging from 0 to 1023?
+
 **A:** Well-known ports
 
 
 **Q:** How many bits are used to specify a port number? Express your answer as a numerical figure
+
 **A:** 16
 
 **Q:** Which service usually runs on port 443?
