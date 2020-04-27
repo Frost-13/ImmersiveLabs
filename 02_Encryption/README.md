@@ -39,6 +39,12 @@ Transposition Cipher will take a message as split it up into a grid and take the
 >this program contains a function “crack lcg(m, r1, r2, r3)”, where m is a positive integer, and r1, r2, and r3 are integers between 0 and m − 1, inclusive. This function
 returns a list [a, b], where a and b are the keys for an LCG, with modulus m, which outputs r1, r2, and r3 as its first three random numbers (i.e. r1 = R1 , r2 = R2 , and r3 = R3 ).  some cases, there may not be a solution. In that case, the program will
 output the list [0, 0]
+# 04_Substitution_Cipher
+- nomenclator.py
+> this program contains two functions called ‘encryptMessage’ and ‘decryptMessage’, which implement encryption and decryption respectively with a nomenclator. These functions each take 3 parameters: ‘subKey’, which contains a key to the simple substitution cipher (which is simply a permutation of the alphabet), ‘codeBook’, a dictionary matching some dictionary words to non-letter symbols (for example, a key could be ‘uncomfortable’, and its value could be ‘*’). Given a message to encrypt, it will consider each word one at a time: If the word is in the codebook, it will replace it with its corresponding symbol. If the word is not in the codebook, it will encipher it using the simple substitution cipher.
+- modified_simple_sub_hacker.py
+> this program is an improved version of a substitution cipher hacker which will decrypt the message without the key. however it leaves blanks in some words. i modified it so that it will go over the message again and fill in the blanks using regular expressions
+
 
 
 
