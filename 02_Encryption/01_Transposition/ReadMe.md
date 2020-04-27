@@ -1,8 +1,3 @@
-
-# Encryption I have worked on in my early career in cybersecurity
-
-This is a folder for the beginner encryption i have worked on.
-
 # 01_Transposition
 Transposition Cipher will take a message as split it up into a grid and take the columns in a certain order (key) and print it out in that order. to decrypt it takes the key and sets the encrypted in a similar grid used to encrypt. and will take the column with key value 1 and put that as the first new decrypted grid and then so on with key value 2 and so on
 
