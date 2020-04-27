@@ -29,6 +29,17 @@ Transposition Cipher will take a message as split it up into a grid and take the
 > the key will work in the following ways:
 > 1. Let’s call the length of the keyword n (so if the keyword is “cdgd”, n is 4). The first n letters of the message are shifted according to the nth letter of the keyword. So, if the keyword is “cdgd”, the first letter of the message would be shifted by 2 (since ‘c’ corresponds to 2), the second would be shifted by 3, the third by 6, and the fourth by 3.
 > 2. If there are more than n letters is the message, then the mth letter, where m > n, is shifted according to the (m − n)th letter of the plaintext message itself. So, if the message is “helloworld” and the keyword is, again, “cdgd”, the ‘o’, being the fifth letter, is shifted according to letter (5 − 4) = 1 of the message, which is ‘h’, which gives a shift of 7, so the ‘o’ is enciphered as ‘v’. The sixth letter, ‘w’, is enciphered using the next letter in the plaintext, which is ‘e’, so the ‘w’ is enciphered as ‘a’. This process ultimately gives a ciphertext of “JHROVAZCZZ”.
+# 03_Pseudorandom_numbers
+- PRNG.py
+>this program is a pseudorandom number generators (PRNGs). this produces a  sequence of pseudorandom numbers, which appear random, but which, with some extra (typically hidden) information, can be predicted. it uses a  linear congruential generator (LCG)  Algorithm. this is a recurrence relation similar to the affine cipher’s encryption function to generate its pseudorandom numbers
+>LCG uses the formua: 
+>Ri+1 = (aRi + b) (mod m) where    i ≥ 0
+>this program contains a function that will take a,b,m and r and calculate using the formula above and outputs a corresponding list of the ri values
+- crack_PRNG.py
+>this program contains a function “crack lcg(m, r1, r2, r3)”, where m is a positive integer, and r1, r2, and r3 are integers between 0 and m − 1, inclusive. This function
+returns a list [a, b], where a and b are the keys for an LCG, with modulus m, which outputs r1, r2, and r3 as its first three random numbers (i.e. r1 = R1 , r2 = R2 , and r3 = R3 ).  some cases, there may not be a solution. In that case, the program will
+output the list [0, 0]
+
 
 
 
