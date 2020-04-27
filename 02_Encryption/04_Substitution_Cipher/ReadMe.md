@@ -1,0 +1,5 @@
+# 04_Substitution_Cipher
+- nomenclator.py
+> this program contains two functions called ‘encryptMessage’ and ‘decryptMessage’, which implement encryption and decryption respectively with a nomenclator. These functions each take 3 parameters: ‘subKey’, which contains a key to the simple substitution cipher (which is simply a permutation of the alphabet), ‘codeBook’, a dictionary matching some dictionary words to non-letter symbols (for example, a key could be ‘uncomfortable’, and its value could be ‘*’). Given a message to encrypt, it will consider each word one at a time: If the word is in the codebook, it will replace it with its corresponding symbol. If the word is not in the codebook, it will encipher it using the simple substitution cipher.
+- modified_simple_sub_hacker.py
+> this program is an improved version of a substitution cipher hacker which will decrypt the message without the key. however it leaves blanks in some words. i modified it so that it will go over the message again and fill in the blanks using regular expressions
