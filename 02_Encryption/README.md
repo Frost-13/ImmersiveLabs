@@ -44,7 +44,16 @@ output the list [0, 0]
 > this program contains two functions called ‘encryptMessage’ and ‘decryptMessage’, which implement encryption and decryption respectively with a nomenclator. These functions each take 3 parameters: ‘subKey’, which contains a key to the simple substitution cipher (which is simply a permutation of the alphabet), ‘codeBook’, a dictionary matching some dictionary words to non-letter symbols (for example, a key could be ‘uncomfortable’, and its value could be ‘*’). Given a message to encrypt, it will consider each word one at a time: If the word is in the codebook, it will replace it with its corresponding symbol. If the word is not in the codebook, it will encipher it using the simple substitution cipher.
 - modified_simple_sub_hacker.py
 > this program is an improved version of a substitution cipher hacker which will decrypt the message without the key. however it leaves blanks in some words. i modified it so that it will go over the message again and fill in the blanks using regular expressions
-
+# 05_Frequency_Analysis
+- file_freq_analysis.py
+> this program has 2 functions:
+> 1. The “freqDict” function takes as input the name of a file. It then performs frequency analysis on the entire text, using the frequency statistics from the textbook, and returns a dictionary, whose keys are the cipher characters, with the value for each key being the plaintext character it is assigned to
+using frequency analysis.
+>2. The “freqDecrypt” function takes two arguments, the first, f 1, being the name of a file containing a ciphertext as for the “freqDict” function, and the second, f 2, being the name of file to be produced by the “freqDecrypt” function. it then performs frequency analysis on f 1, the ciphertext file, decipher it using the
+resulting mapping
+- sub_eval.py
+> this program contains a function named “evalFile”, which takes as input two files, f 1 and f 2. The first argument, f 1, should be a file containing a plaintext, which is assumed to have been enciphered with a simple substitution cipher, and
+then deciphered by some method (such as frequency analysis). The second argument, f 2 should be a file containing this decipherment. the program will compare the two files, and return a two-element list containing the key accuracy and decipherment accuracy of the decipherment in f 2, in that order, comparing to the plaintext in f 1.
 
 
 
