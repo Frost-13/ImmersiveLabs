@@ -95,7 +95,7 @@ using the substitution key:
 ##   
 
 
-## **W****eb**
+## **Web**
 
 ## **Robots. Yeah, I know, pretty obvious.**  (25 pts)
 
@@ -123,7 +123,7 @@ Jess doesn't get enough sleep, _since he's such a gamer_ so in this challenge, y
 
 _**Solution:**_ right click + inspect. after looking around the inspect tool for a while i found this clock that was set to 2084 so i changed it to 2020 and close to my time and it gave me the flag. rtcp{w0w_d1d_u_st4y_up?}
 
-## **G****eneral Skills**
+## **General Skills**
 
 ## **Basic C4** (30 pts)
 
