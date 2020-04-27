@@ -1,4 +1,4 @@
-# 06_ Vigenere_Cipher
+# 06_Vigenere_Cipher
 - preproc.py
 > this program has a function called “antiKasiski”, which does the following pre-processing on a plain text:
 • Takes two parameters: a key, and a plaintext, in that order.
