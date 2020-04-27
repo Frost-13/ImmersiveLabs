@@ -54,7 +54,7 @@ resulting mapping
 - sub_eval.py
 > this program contains a function named “evalFile”, which takes as input two files, f 1 and f 2. The first argument, f 1, should be a file containing a plaintext, which is assumed to have been enciphered with a simple substitution cipher, and
 then deciphered by some method (such as frequency analysis). The second argument, f 2 should be a file containing this decipherment. the program will compare the two files, and return a two-element list containing the key accuracy and decipherment accuracy of the decipherment in f 2, in that order, comparing to the plaintext in f 1.
-# 06_ Vigenere_Cipher
+# 06_Vigenere_Cipher
 - preproc.py
 > this program has a function called “antiKasiski”, which does the following pre-processing on a plain text:
 • Takes two parameters: a key, and a plaintext, in that order.
