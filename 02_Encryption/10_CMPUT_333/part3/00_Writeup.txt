@@ -1,0 +1,83 @@
+##########################################################################################################
+Inspect the contents of the .enc files. Point out what you observe (i) with respect to their sizes vs. the
+plaintext files, and (ii) with respect to seeing any patterns in their contents. Explain your observations
+(what is the cause of what you observe?).
+
+file1 - 449 bytes
+file1cbc.enc - 456 bytes
+file1cfb.enc - 449 bytes
+file1ecb.enc - 456 bytes
+file1ofb.enc - 449 bytes
+
+file2 - 481 bytes
+file2cbc.enc - 488 bytes
+file2cfb.enc - 481 bytes
+file2ecb.enc - 488 bytes
+file2ofb.enc - 481 bytes
+
+file3 - 451 bytes
+file3cbc.enc - 456 bytes
+file3cfb.enc - 451 bytes
+file3ecb.enc - 456 bytes
+file3ofb.enc - 451 bytes
+
+From these observations, you can see that the CFB and OFB modes maintin the same amount of bytes as the
+original file, while the CBC and ECB modes contain slightly more bytes then the original. The extra bytes
+are due to padding during the encryption process that is dependent on the block size of the cipher.
+
+After observing the contents of each encrypted file:
+  CBC - Random
+  CFB - Random
+  ECB - Predictable, same 8 characters = same 8 encrypted characters
+  OFB - Random
+
+  It is easy to see why ECB encryption shouldn't be used, since it always encrypts identical plaintext
+  blocks into identical ciphertext blocks.
+
+
+##########################################################################################################
+Try now to decrypt each of the fileAXYZerror.enc and check the decryption outcomes. Describe what was the
+impact of the "error" to the decryption outcome and explain any differences in the outcome you may have
+noticed.
+
+Each of the 12 error decrypted files can be found in the decrypted_nosalt_error_files folder. Below is a
+description of each:
+
+file1ecberror_decrypted.txt - errors around the area where the byte was changed
+file1cbcerror_decrypted.txt - errors around the area where the byte was changed
+file1cfberror_decrypted.txt - errors around the area where the byte was changed
+file1ofberror_decrypted.txt - single character error
+file2ecberror_decrypted.txt - errors around the area where the byte was changed
+file2cbcerror_decrypted.txt - errors around the area where the byte was changed
+file2cfberror_decrypted.txt - errors around the area where the byte was changed
+file2ofberror_decrypted.txt - single character error
+file3ecberror_decrypted.txt - errors around the area where the byte was changed
+file3cbcerror_decrypted.txt - errors around the area where the byte was changed
+file3cfberror_decrypted.txt - errors around the area where the byte was changed
+file3ofberror_decrypted.txt - single character error
+
+
+##########################################################################################################
+Repeat the generation of the twelve files (now called fileAXYZsalted.enc) and their errored versions
+(fileAXYZerrorsalted.enc), but this time do not use the -nosalt flag. What is the result of the decryption
+of the "errored" files now? Explain (to the best of your knowledge) the reasons for the particular
+observed behavior. Again, all files are to be submitted.
+
+Each of the 12 error decrypted files can be found in the decrypted_salt_error_files folder. Below is a
+description of each:
+
+file1ecberrorsalted_decrypted.txt - errors around certain area of text
+file1cbcerrorsalted_decrypted.txt - errors around certain area of text
+file1cfberrorsalted_decrypted.txt - errors around certain area of text
+file1ofberrorsalted_decrypted.txt - single character error
+file2ecberrorsalted_decrypted.txt - errors around certain area of text
+file2cbcerrorsalted_decrypted.txt - errors around certain area of text
+file2cfberrorsalted_decrypted.txt - errors around certain area of text
+file2ofberrorsalted_decrypted.txt - single character error
+file3ecberrorsalted_decrypted.txt - errors around certain area of text
+file3cbcerrorsalted_decrypted.txt - errors around certain area of text
+file3cfberrorsalted_decrypted.txt - errors around certain area of text
+file3ofberrorsalted_decrypted.txt - single character error
+
+
+##########################################################################################################
