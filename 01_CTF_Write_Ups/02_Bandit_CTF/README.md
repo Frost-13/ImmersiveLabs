@@ -137,3 +137,124 @@ The password for the next level is stored in the file **data.txt** next to the w
     millionth	cvX2JJa4CFALtqS87jk27qwqGhBM9plV
 *Flag:* cvX2JJa4CFALtqS87jk27qwqGhBM9plV
 
+## Level 9
+**Level Goal**
+The password for the next level is stored in the file **data.txt** and is the only line of text that occurs only once
+
+**SOLUTION:**
+Knowing i cant just look at the filw and find it i need a way to get unique lines. i found that uniq -u qill do this and i needed to sort it first then pipe it into the uniq for it to work
+
+    bandit8@bandit:~$ sort data.txt | uniq -u
+    UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+
+*Flag:* UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+
+## Level 10
+**Level Goal**
+The password for the next level is stored in the file **data.txt** in one of the few human-readable strings, preceded by several ‘=’ characters.
+
+**SOLUTION:**
+
+    bandit9@bandit:~$ grep -a == data.txt
+
+at the end of the long grep it give the flag
+*Flag:* truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+
+## Level 11
+**Level Goal**
+The password for the next level is stored in the file **data.txt**, which contains base64 encoded data
+
+**SOLUTION:**
+
+    bandit10@bandit:~$ ls
+    data.txt
+    bandit10@bandit:~$ cat data.txt
+    VGhlIHBhc3N3b3JkIGlzIElGdWt3S0dzRlc4TU9xM0lSRnFyeEUxaHhUTkViVVBSCg==
+going to the website https://www.base64decode.org/
+after decoding the message i got the output:
+The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+
+*Flag:* IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+
+## Level 12
+**Level Goal**
+The password for the next level is stored in the file **data.txt**, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
+
+**SOLUTION:**
+
+    bandit11@bandit:~$ cat data.txt 
+    Gur cnffjbeq vf 5Gr8L4qetPEsPk8htqjhRK8XSP6x2RHh
+
+using the website https://cryptii.com/pipes/rot13-decoder i got the message:
+The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+*Flag:* 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+
+## Level 13
+**Level Goal**
+The password for the next level is stored in the file **data.txt**, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work using mkdir. For example: mkdir /tmp/myname123. Then copy the datafile using cp, and rename it using mv (read the manpages!)
+
+**SOLUTION:**
+
+    bandit12@bandit:~$ mkdir /tmp/frost
+    bandit12@bandit:~$ cp data.txt /tmp/frost
+    bandit12@bandit:~$ cd /tmp/frost
+    bandit12@bandit:/tmp/frost$ ls
+    data.txt
+    bandit12@bandit:/tmp/frost$ xxd -r data.txt > data_xxd_reverse
+    bandit12@bandit:/tmp/frost$ file data_xxd_reverse
+    data_xxd_reverse: gzip compressed data, was "data2.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+    bandit12@bandit:/tmp/frost$ zcat data_xxd_reverse > data_zcat
+    bandit12@bandit:/tmp/frost$ file data_zcat
+    data_zcat: bzip2 compressed data, block size = 900k
+    bandit12@bandit:/tmp/frost$ bzip2 -d data_zcat
+    bzip2: Can't guess original name for data_zcat -- using data_zcat.out
+    bandit12@bandit:/tmp/frost$ file data_zcat.out
+    data_zcat.out: gzip compressed data, was "data4.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+    bandit12@bandit:/tmp/frost$ zcat data_zcat.out > data_zcat_2
+    bandit12@bandit:/tmp/frost$ file data_zcat_2
+    data_zcat_2: POSIX tar archive (GNU)
+    bandit12@bandit:/tmp/frost$ tar xvf data_zcat_2
+    data5.bin
+    bandit12@bandit:/tmp/frost$ file data_zcat_2
+    data_zcat_2: POSIX tar archive (GNU)
+    bandit12@bandit:/tmp/frost$ file data5.bin
+    data5.bin: POSIX tar archive (GNU)
+    bandit12@bandit:/tmp/frost$ tar xvf data5.bin
+    data6.bin
+    bandit12@bandit:/tmp/frost$ file data6.bin
+    data6.bin: bzip2 compressed data, block size = 900k
+    bandit12@bandit:/tmp/frost$ bzip2 -d data6.bin
+    bzip2: Can't guess original name for data6.bin -- using data6.bin.out
+    bandit12@bandit:/tmp/frost$ file data6.bin.out
+    data6.bin.out: POSIX tar archive (GNU)
+    bandit12@bandit:/tmp/frost$ tar xvf data6.bin.out
+    data8.bin
+    bandit12@bandit:/tmp/frost$ file data8.bin
+    data8.bin: gzip compressed data, was "data9.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+    bandit12@bandit:/tmp/frost$ zcat data8.bin > data8_zcat
+    bandit12@bandit:/tmp/frost$ file data8_zcat
+    data8_zcat: ASCII text
+    bandit12@bandit:/tmp/frost$ cat data8_zcat 
+    The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+
+*Flag:* 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+
+## Level 14
+**Level Goal**
+The password for the next level is stored in **/etc/bandit_pass/bandit14 and can only be read by user bandit14**. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. **Note:** **localhost** is a hostname that refers to the machine you are working on
+
+**SOLUTION:**
+
+    bandit13@bandit:~$ cat sshkey.private
+
+gives private key too big to paste here, takes up too much space. 
+
+    bandit13@bandit:~$ ssh bandit14@localhost -i sshkey.private 
+gives us access to bandit14 machine
+
+    cat /etc/bandit_pass/bandit14
+    4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+
+cat the file that the level goal told us to
+
+*Flag:* 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
