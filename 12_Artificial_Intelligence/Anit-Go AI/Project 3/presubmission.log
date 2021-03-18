@@ -1,0 +1,11 @@
+Script started on Wed 18 Mar 2020 02:23:43 PM MDT
+chatterl@ug07:~/CMPUT_455-3>exitgogui-regressls[Kcd CMPUT_455-3/ls[Kgit clone https://github.com/chatterl/CMPUT_455-3.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kgogui regressls[Kcd lib[4Plscd .../gogui[1Pcd bin/./goguils[K[K[Kgogui-regress ./Nogo.py assignment3-public-tests.gtp
+20 unexpected FAIL: Correct 'd1 d6 f3 f7 0.424 0.206 0.052 0.319', got 'd1 d6 f3 f7 0.417 0.102 0.218 0.264'
+90 unexpected FAIL: Correct 'a4 d2 d5 e3 f3 0.166 0.157 0.097 0.334 0.246', got 'a4 d2 d5 e3 f3 0.142 0.176 0.151 0.233 0.298'
+110 unexpected FAIL: Correct 'd2|c3', got 'a1'
+120 unexpected FAIL: Correct 'a2|d2', got 'a1'
+assignment3-public-tests.gtp: Response pattern without preceding test command: #? [a2|d2]
+chatterl@ug07:~/CMPUT_455-3>exit
+exit
+
+Script done on Wed 18 Mar 2020 02:25:48 PM MDT
